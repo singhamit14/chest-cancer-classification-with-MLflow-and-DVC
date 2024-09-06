@@ -5,6 +5,5 @@ INCLUDE_TOP: False
 EPOCHS: 1
 CLASSES: 2
 WEIGHTS: imagenet
-LEARNING_RATE: 0.01
-# base_model_path=Path('path_to_base_model'),
-# updated_base_model_path=Path('path_to_updated_model')
+LEARNING_RATE: 0.02
+
