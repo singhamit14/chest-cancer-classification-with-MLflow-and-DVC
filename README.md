@@ -18,7 +18,6 @@
 
 - [Documentation](https://mlflow.org/docs/latest/index.html)
 
-- [MLflow tutorial](https://youtube.com/playlist?list=PLkz_y24mlSJZrqiZ4_cLUiP0CBN5wFmTb&si=zEp_C8zLHt1DzWKK)
 
 ##### cmd
 - mlflow ui
@@ -37,7 +36,7 @@ export MLFLOW_TRACKING_URI=https://dagshub.com/singhamit14/chest-cancer-classifi
 
 export MLFLOW_TRACKING_USERNAME=singhamit14
 
-export MLFLOW_TRACKING_PASSWORD=ccee19ec5b720c18f601ef4373a3b56c2a5603f5
+export MLFLOW_TRACKING_PASSWORD=ccee19ec5b720c18f601ef4373a3b56c2 # change password
 
 ```
 
@@ -49,7 +48,7 @@ setx MLFLOW_TRACKING_URI "https://dagshub.com/singhamit14/chest-cancer-classific
 
 setx MLFLOW_TRACKING_USERNAME "singhamit14"
 
-setx MLFLOW_TRACKING_PASSWORD "ccee19ec5b720c18f601ef4373a3b56c2a5603f5"
+setx MLFLOW_TRACKING_PASSWORD "ccee19ec5b720c18f601ef4373a3b56c2a56" # change password
 
 ```
 
@@ -61,7 +60,7 @@ $env:MLFLOW_TRACKING_URI="https://dagshub.com/singhamit14/chest-cancer-classific
 
 $env:MLFLOW_TRACKING_USERNAME="singhamit14"
 
-$env:MLFLOW_TRACKING_PASSWORD="ccee19ec5b720c18f601ef4373a3b56c2a5603f5"
+$env:MLFLOW_TRACKING_PASSWORD="ccee19ec5b720c18f601ef4373a3b56c2a5" # change password
 
 ```
 
