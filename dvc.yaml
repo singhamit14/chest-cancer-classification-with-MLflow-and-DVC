@@ -1,0 +1,56 @@
+stages:
+  data_ingestion:
+    cmd: python src/cnnClassifier/pipeline/data_ingestion_stage_01.py
+    deps:
+      - src/cnnClassifier/pipeline/data_ingestion_stage_01.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/Chest-CT-Scan-data
+
+  
+  prepare_base_model:
+    cmd: python src/cnnClassifier/pipeline/prepare_base_model_02.py
+    deps:
+      - src/cnnClassifier/pipeline/prepare_base_model_02.py
+      - config/config.yaml
+    params:
+      - IMAGE_SIZE
+      - INCLUDE_TOP
+      - CLASSES
+      - WEIGHTS
+      - LEARNING_RATE
+    outs:
+      - artifacts/prepare_base_model
+
+
+  training:
+    cmd: python src/cnnClassifier/pipeline/model_trainer_03.py
+    deps:
+      - src/cnnClassifier/pipeline/model_trainer_03.py
+      # - src/cnnClassifier/components/prepare_callbacks.py
+      - config/config.yaml
+      - artifacts/data_ingestion/Chest-CT-Scan-data
+      - artifacts/prepare_base_model
+    params:
+      - IMAGE_SIZE
+      - BATCH_SIZE
+      - EPOCHS
+      - AUGMENTATION
+    outs:
+      - artifacts/training/model.h5
+
+
+  evaluation:
+    cmd: python src/cnnClassifier/pipeline/model_evaluation_04.py
+    deps:
+      - src/cnnClassifier/pipeline/model_evaluation_04.py
+      - config/config.yaml
+      - artifacts/data_ingestion/Chest-CT-Scan-data
+      # - artifacts/prepare_base_model
+      - artifacts/training/model.h5
+    params:
+      - IMAGE_SIZE
+      - BATCH_SIZE
+    metrics:
+    - scores.json:
+        cache: false 
